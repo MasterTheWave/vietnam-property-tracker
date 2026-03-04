@@ -169,10 +169,12 @@ def scheduler_thread():
         schedule.run_pending()
         time.sleep(60)
 
+# Start scheduler in background (runs under gunicorn too)
+t = threading.Thread(target=scheduler_thread, daemon=True)
+t.start()
+
 if __name__ == "__main__":
-    # Start scheduler in background
-    t = threading.Thread(target=scheduler_thread, daemon=True)
-    t.start()
+    app.run(host="0.0.0.0", port=5000, debug=False)
     log.info("Scheduler started — scraping every 15 minutes")
 
     app.run(host="0.0.0.0", port=5000, debug=False)
