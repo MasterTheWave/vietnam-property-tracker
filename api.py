@@ -20,8 +20,8 @@ log = logging.getLogger(__name__)
 app = Flask(__name__)
 CORS(app)
 
-DROPS_FILE = "../scraper/drops.json"
-HISTORY_FILE = "../scraper/price_history.json"
+DROPS_FILE = "drops.json"
+HISTORY_FILE = "price_history.json"
 
 # ──────────────────────────────────────────────
 def load_drops():
