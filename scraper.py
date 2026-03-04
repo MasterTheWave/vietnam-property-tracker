@@ -43,9 +43,9 @@ CITIES = {
 }
 
 PROPERTY_TYPES = {
-    "apartment": "chung-cu",
-    "villa":     "biet-thu",
-    "townhouse": "nha-mat-pho",
+    "apartment": "can-ho-chung-cu",
+    "villa":     "biet-thu-nha-lien-ke",
+    "townhouse": "nha-mat-tien",
 }
 
 USD_VND_RATE = 25400  # fallback
@@ -165,7 +165,7 @@ class AlonhadatScraper:
         type_slug = PROPERTY_TYPES.get(prop_type, "chung-cu")
 
         for page in range(1, pages + 1):
-            url = f"{self.BASE_URL}/nha-dat/can-ban/{type_slug}/{page}/{city_slug}.html"
+            url = f"{self.BASE_URL}/can-ban-nha-dat/{type_slug}/{city_slug}/trang-{page}.html"
             log.info("AlonNhaDat scraping: %s", url)
 
             try:
