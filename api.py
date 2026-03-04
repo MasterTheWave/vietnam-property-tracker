@@ -172,6 +172,7 @@ def scheduler_thread():
 # Start scheduler in background (runs under gunicorn too)
 t = threading.Thread(target=scheduler_thread, daemon=True)
 t.start()
+run_scraper()  # run immediately on startup
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=False)
